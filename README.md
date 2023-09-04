@@ -1,4 +1,4 @@
-# ggtrout, for those obsessed with trout coloration
+# ggtrout, made for those obsessed with trout coloration
 
 This package XXX
 
