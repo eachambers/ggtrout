@@ -27,40 +27,12 @@ The ggtrout package is only available on GitHub and so must be installed using t
 devtools::install_github("eachambers/ggtrout")
 ```
 
-## Usage
-
-------------------------------------------------------------------------
-
-```{r usage}
-# Load library
+Libraries you'll want to load to use the package are as follows:
+```{r libs}
 library(ggtrout)
-
-# See all available palettes
-names(ggtrout_palettes)
-```
-
-There are 10 palettes available in the ggtrout package, each named based on the species for which the palette is inspired. Five are qualitative, three are diverging, and two are monochromatic. You can have the package tell you which is which using the `ggtrout_types()` function. For example:
-
-```{r palette types, message = FALSE}
-library(dplyr)
-library(tibble)
-
-# For an individual palette's type:
-ggtrout_type("rainbow2")
-
-# For only monochromatic palettes:
-ggtrout_type("monochromatic")
-
-# For all palettes:
-ggtrout_type("all")
-```
-
-You can check the degree of colorblind friendliness for each of the ggtrout palettes using the `ggtrout_cb()` function. In general, the diverging palettes (i.e., "brook1", "cutthroat1", and "rainbow1") are the most colorblind friendly. This function uses the `palette_check()` function in the colorblindcheck package; a general rule of thumb is to select palettes that have a min_dist of \~8 for all color vision deficiencies.
-
-```{r colorblind, message = FALSE}
-library(colorblindcheck)
-
-ggtrout_cb("brook1")
+library(tidyverse)
+library(cowplot)
+theme_set(theme_cowplot())
 ```
 
 ## Palettes
@@ -69,7 +41,7 @@ ggtrout_cb("brook1")
 
 <img src="man/figures/cuttie.jpg" align="center" height="350"/>
 
-Let's go through all the palettes, grouped by (sub)species. In general, you can access and view the palettes using the `ggtrout_palette()` function like so:
+There are 10 palettes available in the ggtrout package, each named based on the species for which the palette is inspired. Five are qualitative, three are diverging, and two are monochromatic. Let's go through all the palettes, grouped by (sub)species. In general, you can access and view the palettes using the `ggtrout_palette()` function like so:
 
 ```{r palette}
 # ggtrout_palette("brook1")
@@ -103,21 +75,7 @@ grid_palettes("rainbow")
 
 ------------------------------------------------------------------------
 
-Below are some examples of using the ggtrout palettes. Let's first load relevant libraries:
-
-```{r libs}
-library(ggplot2)
-library(cowplot)
-library(tibble)
-library(dplyr)
-library(elevatr)
-library(readr)
-library(dataRetrieval)
-library(tidyr)
-theme_set(theme_cowplot())
-```
-
-And now take a look at some examples. As you can see, the palettes are designed to be used with ggplot2 syntax.
+Below are some examples of using the ggtrout palettes. As you can see, the palettes are designed to be used with ggplot2 syntax.
 
 ```{r examples, message = FALSE}
 ggplot(Orange, aes(x = circumference, y = age, color = Tree)) +
@@ -172,6 +130,36 @@ ggplot(animas, aes(x = date, y = water_temp, group = year, color = year)) +
   ggtitle("Animas River water temperature (2016-2023)") +
   scale_color_manual(values = ggtrout_palette("rainbow3")) +
   facet_grid(~year)
+```
+
+## Other functions in ggtrout
+
+------------------------------------------------------------------------
+
+```{r names}
+# See all available palettes
+names(ggtrout_palettes)
+```
+
+You can have ggtrout tell you which is which using the `ggtrout_types()` function. For example:
+
+```{r palette types, message = FALSE}
+# For an individual palette's type:
+ggtrout_type("rainbow2")
+
+# For only monochromatic palettes:
+ggtrout_type("monochromatic")
+
+# For all palettes:
+ggtrout_type("all")
+```
+
+You can check the degree of colorblind friendliness for each of the ggtrout palettes using the `ggtrout_cb()` function. In general, the diverging palettes (i.e., "brook1", "cutthroat1", and "rainbow1") are the most colorblind friendly. This function uses the `palette_check()` function in the colorblindcheck package; a general rule of thumb is to select palettes that have a min_dist of \~8 for all color vision deficiencies.
+
+```{r colorblind, message = FALSE}
+library(colorblindcheck)
+
+ggtrout_cb("brook1")
 ```
 
 ## Acknowledgements

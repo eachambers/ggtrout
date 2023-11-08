@@ -21,63 +21,29 @@ using the devtools package:
 devtools::install_github("eachambers/ggtrout")
 ```
 
-## Usage
-
-------------------------------------------------------------------------
+Libraries you’ll want to load to use the package are as follows:
 
 ``` r
-# Load library
 library(ggtrout)
-
-# See all available palettes
-names(ggtrout_palettes)
-#>  [1] "brook1"     "brook2"     "brook3"     "cutthroat1" "cutthroat2"
-#>  [6] "cutthroat3" "rainbow1"   "rainbow2"   "rainbow3"   "greenback"
-```
-
-There are 10 palettes available in the ggtrout package, each named based
-on the species for which the palette is inspired. Five are qualitative,
-three are diverging, and two are monochromatic. You can have the package
-tell you which is which using the `ggtrout_types()` function. For
-example:
-
-``` r
-library(dplyr)
-library(tibble)
-
-# For an individual palette's type:
-ggtrout_type("rainbow2")
-#> [1] "diverging"
-
-# For only monochromatic palettes:
-ggtrout_type("monochromatic")
-#> [1] "brook2"     "cutthroat2"
-
-# For all palettes:
-ggtrout_type("all")
-#>          brook1          brook2          brook3      cutthroat1      cutthroat2 
-#>   "qualitative" "monochromatic"     "diverging"   "qualitative" "monochromatic" 
-#>      cutthroat3        rainbow1        rainbow2        rainbow3       greenback 
-#>     "diverging"   "qualitative"     "diverging"   "qualitative"   "qualitative"
-```
-
-You can check the degree of colorblind friendliness for each of the
-ggtrout palettes using the `ggtrout_cb()` function. In general, the
-diverging palettes (i.e., “brook1”, “cutthroat1”, and “rainbow1”) are
-the most colorblind friendly. This function uses the `palette_check()`
-function in the colorblindcheck package; a general rule of thumb is to
-select palettes that have a min_dist of \~8 for all color vision
-deficiencies.
-
-``` r
-library(colorblindcheck)
-
-ggtrout_cb("brook1")
-#>           name n tolerance ncp ndcp  min_dist mean_dist max_dist
-#> 1       normal 8  11.02395  28   28 11.023953  21.09850 33.82429
-#> 2 deuteranopia 8  11.02395  28   24  5.287604  19.59110 31.99118
-#> 3   protanopia 8  11.02395  28   25  7.137733  19.29605 32.59222
-#> 4   tritanopia 8  11.02395  28   26  8.509960  21.03258 41.47271
+library(tidyverse)
+#> ── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
+#> ✔ dplyr     1.1.2     ✔ readr     2.1.4
+#> ✔ forcats   1.0.0     ✔ stringr   1.5.0
+#> ✔ ggplot2   3.4.3     ✔ tibble    3.2.1
+#> ✔ lubridate 1.9.2     ✔ tidyr     1.3.0
+#> ✔ purrr     1.0.2     
+#> ── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+#> ✖ dplyr::filter() masks stats::filter()
+#> ✖ dplyr::lag()    masks stats::lag()
+#> ℹ Use the conflicted package (<http://conflicted.r-lib.org/>) to force all conflicts to become errors
+library(cowplot)
+#> 
+#> Attaching package: 'cowplot'
+#> 
+#> The following object is masked from 'package:lubridate':
+#> 
+#>     stamp
+theme_set(theme_cowplot())
 ```
 
 ## Palettes
@@ -86,9 +52,11 @@ ggtrout_cb("brook1")
 
 <img src="man/figures/cuttie.jpg" align="center" height="350"/>
 
-Let’s go through all the palettes, grouped by (sub)species. In general,
-you can access and view the palettes using the `ggtrout_palette()`
-function like so:
+There are 10 palettes available in the ggtrout package, each named based
+on the species for which the palette is inspired. Five are qualitative,
+three are diverging, and two are monochromatic. Let’s go through all the
+palettes, grouped by (sub)species. In general, you can access and view
+the palettes using the `ggtrout_palette()` function like so:
 
 ``` r
 # ggtrout_palette("brook1")
@@ -142,27 +110,8 @@ grid_palettes("rainbow")
 
 ------------------------------------------------------------------------
 
-Below are some examples of using the ggtrout palettes. Let’s first load
-relevant libraries:
-
-``` r
-library(ggplot2)
-library(cowplot)
-library(tibble)
-library(dplyr)
-library(elevatr)
-#> elevatr v0.99.0 NOTE: Version 0.99.0 of 'elevatr' uses 'sf' and 'terra'.  Use 
-#> of the 'sp', 'raster', and underlying 'rgdal' packages by 'elevatr' is being 
-#> deprecated; however, get_elev_raster continues to return a RasterLayer.  This 
-#> will be dropped in future versions, so please plan accordingly.
-library(readr)
-library(dataRetrieval)
-library(tidyr)
-theme_set(theme_cowplot())
-```
-
-And now take a look at some examples. As you can see, the palettes are
-designed to be used with ggplot2 syntax.
+Below are some examples of using the ggtrout palettes. As you can see,
+the palettes are designed to be used with ggplot2 syntax.
 
 ``` r
 ggplot(Orange, aes(x = circumference, y = age, color = Tree)) +
@@ -249,6 +198,56 @@ ggplot(animas, aes(x = date, y = water_temp, group = year, color = year)) +
 ```
 
 <img src="man/figures/README-animas-1.png" width="100%" />
+
+## Other functions in ggtrout
+
+------------------------------------------------------------------------
+
+``` r
+# See all available palettes
+names(ggtrout_palettes)
+#>  [1] "brook1"     "brook2"     "brook3"     "cutthroat1" "cutthroat2"
+#>  [6] "cutthroat3" "rainbow1"   "rainbow2"   "rainbow3"   "greenback"
+```
+
+You can have ggtrout tell you which is which using the `ggtrout_types()`
+function. For example:
+
+``` r
+# For an individual palette's type:
+ggtrout_type("rainbow2")
+#> [1] "diverging"
+
+# For only monochromatic palettes:
+ggtrout_type("monochromatic")
+#> [1] "brook2"     "cutthroat2"
+
+# For all palettes:
+ggtrout_type("all")
+#>          brook1          brook2          brook3      cutthroat1      cutthroat2 
+#>   "qualitative" "monochromatic"     "diverging"   "qualitative" "monochromatic" 
+#>      cutthroat3        rainbow1        rainbow2        rainbow3       greenback 
+#>     "diverging"   "qualitative"     "diverging"   "qualitative"   "qualitative"
+```
+
+You can check the degree of colorblind friendliness for each of the
+ggtrout palettes using the `ggtrout_cb()` function. In general, the
+diverging palettes (i.e., “brook1”, “cutthroat1”, and “rainbow1”) are
+the most colorblind friendly. This function uses the `palette_check()`
+function in the colorblindcheck package; a general rule of thumb is to
+select palettes that have a min_dist of \~8 for all color vision
+deficiencies.
+
+``` r
+library(colorblindcheck)
+
+ggtrout_cb("brook1")
+#>           name n tolerance ncp ndcp  min_dist mean_dist max_dist
+#> 1       normal 8  11.02395  28   28 11.023953  21.09850 33.82429
+#> 2 deuteranopia 8  11.02395  28   24  5.287604  19.59110 31.99118
+#> 3   protanopia 8  11.02395  28   25  7.137733  19.29605 32.59222
+#> 4   tritanopia 8  11.02395  28   26  8.509960  21.03258 41.47271
+```
 
 ## Acknowledgements
 
