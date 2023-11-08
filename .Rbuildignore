@@ -1,2 +1,4 @@
+^renv$
+^renv\.lock$
 ^ggtrout\.Rproj$
 ^\.Rproj\.user$

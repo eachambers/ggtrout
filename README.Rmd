@@ -1,0 +1,129 @@
+---
+output: github_document
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "man/figures/README-",
+  out.width = "100%"
+)
+```
+
+# ggtrout
+
+Are you obsessed with trout coloration? Look no further! This package provides ten color palettes inspired by several species (and subspecies) of trout that inhabit pristine habitats across the United States. The package's framework is designed for use in the tidyverse but can be used for base R plotting as well.
+
+## Installation
+
+------------------------------------------------------------------------
+
+The ggtrout package is only available on GitHub and so must be installed using the devtools package like so:
+
+``` r
+devtools::install_github("eachambers/ggtrout")
+```
+
+## Usage
+
+------------------------------------------------------------------------
+
+```{r usage}
+# Load library
+library(ggtrout)
+
+# See all available palettes
+names(ggtrout_palettes)
+```
+
+There are 10 palettes available in the ggtrout package, each named based on the species for which the palette is inspired. Five are qualitative, three are diverging, and two are monochromatic. You can have the package tell you which is which using the `ggtrout_types()` function. For example:
+
+```{r palette types}
+library(dplyr)
+library(tibble)
+# For an individual palette's type:
+ggtrout_type("rainbow_blue")
+
+# For only monochromatic palettes:
+ggtrout_type("monochromatic")
+
+# For all palettes:
+ggtrout_type("all")
+```
+
+You can check the degree of colorblind friendliness for each of the ggtrout palettes using the `ggtrout_cb()` function. In general, the diverging palettes (i.e., "brook1", "cutthroat1", and "rainbow1") are the most colorblind friendly. This function uses the `palette_check()` function in the colorblindcheck package; a general rule of thumb is to select palettes that have a min_dist of ~8 for all color vision deficiencies.
+
+```{r colorblind}
+library(colorblindcheck)
+ggtrout_cb("brook1")
+```
+
+## Palettes
+
+------------------------------------------------------------------------
+
+Let's go through all the palettes, grouped by (sub)species.
+
+### Brook trout
+
+Brook trout (*Salvelinus fontinalis*), when breeding, have bright orange-red pelvic and pectoral fins and brilliant red lateral spots ringed with a grey-blue. There are three brookie-inspired palettes.
+
+```{r brookie}
+ggtrout_palette("brook1")
+ggtrout_palette("brook2")
+ggtrout_palette("brook3")
+```
+
+### Cutthroat trout
+
+Cutthroat trout (*Oncorhynchus clarkii*) are named for their bright blood-red fin arch coloration. This species has many subspecies, and the ggtrout package is inspired by two Coloradan subspecies: the Colorado River cutthroat (*O. c. pleuriticus*) and the greenback cutthroat (*O. c. stomias*). The greenback has a fun history; it was presumed extinct in the 1930s until its rediscovery in a TODO limited river basin in Colorado in 1957 Since then, massive conservation efforts have been focused on reintroducing the subspecies into its historic range. The greenback is also the state fish of Colorado. There are four cuttie-inspired palettes.
+
+```{r cuttie}
+ggtrout_palette("cutthroat1")
+ggtrout_palette("cutthroat2")
+ggtrout_palette("cutthroat3")
+ggtrout_palette("greenback")
+```
+
+### Rainbow trout
+
+Rainbow trout (*Oncorhynchus mykiss*) is a widely distributed species that has been introduced to freshwater habitats across the U.S. so it's generally a little less exciting than the other trout. Their coloration is quite stunning though! There are three rainbow-inspired palettes.
+
+```{r rainbow}
+ggtrout_palette("rainbow1")
+ggtrout_palette("rainbow2")
+ggtrout_palette("rainbow3")
+```
+
+## Examples
+
+------------------------------------------------------------------------
+
+Below are some examples of using the ggtrout palettes with example data. As you can see, you can adapt these palettes for use in `ggplot2()`.
+
+```{r examples}
+library(ggplot2)
+# ggplot(mtcars, aes(factor(cyl), fill = factor(vs))) +  geom_bar() +
+#   scale_fill_manual(values = ggtrout_palette("brook1"))
+# 
+# pal <- ggtrout_palette("greenback", 12, type = "continuous")
+# image(volcano, col = pal)
+# 
+# pal <- ggtrout_palette("cutthroat3", 100, type = "continuous")
+# 
+# ggplot(heatmap, aes(x = X2, y = X1, fill = value)) +
+#   geom_tile() +
+#   scale_fill_gradientn(colours = pal, trans = "reverse") +
+#   scale_x_discrete(expand = c(0, 0)) +
+#   scale_y_discrete(expand = c(0, 0)) +
+#   coord_equal()
+```
+
+## Acknowledgements
+
+------------------------------------------------------------------------
+
+Much of my code, and the general structure of this package, was inspired by the `wesanderson` package developed by Karthik Ram (find it [here](https://github.com/karthik/wesanderson)), and the `NatParksPalettes` package developed by Kevin Blake (find it [here](https://github.com/kevinsblake/NatParksPalettes)). For advice on use of color in data visualization, I highly recommend the wonderful and fully open access *Fundamentals of Data Visualization* textbook by Claus Wilke, available online [here](https://clauswilke.com/dataviz/).
