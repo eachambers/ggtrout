@@ -18,9 +18,9 @@ usethis::use_data(chibasin, overwrite = TRUE)
 bluelakes_coords <- data.frame(x = c("-107.839941", "-107.839941", "-107.781356", "-107.781356"),
                               y = c("38.020034", "37.984953", "37.984953", "38.020034"))
 
-bluelakes <- elevatr::get_elev_raster(bluelakes_coords, prj = "WGS84", z = 14)
+bluelakes <- elevatr::get_elev_raster(bluelakes_coords, prj = "WGS84", z = 12)
 bluelakes <- raster::as.data.frame(bluelakes, xy = TRUE) %>%
-  dplyr::rename(elevation = file108b63ce85cd7)
+  dplyr::rename(elevation = file108b6e3a7ea9)
 usethis::use_data(bluelakes, overwrite = TRUE)
 
 
