@@ -15,7 +15,7 @@ knitr::opts_chunk$set(
 
 # ggtrout
 
-Are you obsessed with trout coloration? Look no further! This package provides ten color palettes inspired by several species (and subspecies) of trout that inhabit pristine habitats across the United States. The package's framework is designed for use in the tidyverse but can be used for base R plotting as well.
+Are you so obsessed with trout that you want to incorporate their coloration into your data visualizations? Look no further! This package provides ten color palettes inspired by several species (and subspecies) of trout that inhabit pristine habitats across the United States. The package's framework is designed for use in the tidyverse but can be used for base R plotting as well.
 
 ## Installation
 
@@ -44,6 +44,7 @@ There are 10 palettes available in the ggtrout package, each named based on the 
 ```{r palette types, message = FALSE}
 library(dplyr)
 library(tibble)
+
 # For an individual palette's type:
 ggtrout_type("rainbow2")
 
@@ -58,6 +59,7 @@ You can check the degree of colorblind friendliness for each of the ggtrout pale
 
 ```{r colorblind, message = FALSE}
 library(colorblindcheck)
+
 ggtrout_cb("brook1")
 ```
 
@@ -85,12 +87,21 @@ ggtrout_palette("brook3")
 
 ### Cutthroat trout
 
-Cutthroat trout (*Oncorhynchus clarkii*) are named for their bright blood-red fin arch coloration. This species has many subspecies, and the ggtrout package is inspired by two Coloradan subspecies: the Colorado River cutthroat (*O. c. pleuriticus*) and the greenback cutthroat (*O. c. stomias*). The greenback has a fun history; it was presumed extinct in the 1930s until its rediscovery in a TODO limited river basin in Colorado in 1957 Since then, massive conservation efforts have been focused on reintroducing the subspecies into its historic range. The greenback is also the state fish of Colorado. There are four cuttie-inspired palettes.
+Cutthroat trout (*Oncorhynchus clarkii*) are named for their bright blood-red fin arch coloration. This species has many subspecies, and the ggtrout package is inspired by two Coloradan subspecies: the Colorado River cutthroat (*O. c. pleuriticus*) and the greenback cutthroat (*O. c. stomias*). The greenback has a fun history: it was presumed extinct in the 1930s until its rediscovery in a restricted river basin in Colorado in 1957. Since then, massive conservation efforts have been focused on reintroducing the subspecies into its historic range; the greenback is also the state fish of Colorado! There are four cuttie-inspired palettes.
 
-```{r cuttie}
+```{r cuttie1}
 ggtrout_palette("cutthroat1")
+```
+
+```{r cuttie2}
 ggtrout_palette("cutthroat2")
+```
+
+```{r cuttie3}
 ggtrout_palette("cutthroat3")
+```
+
+```{r greenback}
 ggtrout_palette("greenback")
 ```
 

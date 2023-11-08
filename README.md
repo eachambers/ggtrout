@@ -3,7 +3,8 @@
 
 # ggtrout
 
-Are you obsessed with trout coloration? Look no further! This package
+Are you so obsessed with trout that you want to incorporate their
+coloration into your data visualizations? Look no further! This package
 provides ten color palettes inspired by several species (and subspecies)
 of trout that inhabit pristine habitats across the United States. The
 package’s framework is designed for use in the tidyverse but can be used
@@ -43,6 +44,7 @@ example:
 ``` r
 library(dplyr)
 library(tibble)
+
 # For an individual palette's type:
 ggtrout_type("rainbow2")
 #> [1] "diverging"
@@ -69,6 +71,7 @@ deficiencies.
 
 ``` r
 library(colorblindcheck)
+
 ggtrout_cb("brook1")
 #>           name n tolerance ncp ndcp  min_dist mean_dist max_dist
 #> 1       normal 8  11.02395  28   28 11.023953  21.09850 33.82429
@@ -123,11 +126,11 @@ Cutthroat trout (*Oncorhynchus clarkii*) are named for their bright
 blood-red fin arch coloration. This species has many subspecies, and the
 ggtrout package is inspired by two Coloradan subspecies: the Colorado
 River cutthroat (*O. c. pleuriticus*) and the greenback cutthroat (*O.
-c. stomias*). The greenback has a fun history; it was presumed extinct
-in the 1930s until its rediscovery in a TODO limited river basin in
-Colorado in 1957 Since then, massive conservation efforts have been
-focused on reintroducing the subspecies into its historic range. The
-greenback is also the state fish of Colorado. There are four
+c. stomias*). The greenback has a fun history: it was presumed extinct
+in the 1930s until its rediscovery in a restricted river basin in
+Colorado in 1957. Since then, massive conservation efforts have been
+focused on reintroducing the subspecies into its historic range; the
+greenback is also the state fish of Colorado! There are four
 cuttie-inspired palettes.
 
 ``` r
@@ -137,12 +140,18 @@ ggtrout_palette("cutthroat1")
 #> [1] "palette"
 #> attr(,"name")
 #> [1] "cutthroat1"
+```
+
+``` r
 ggtrout_palette("cutthroat2")
 #> [1] "#81654d" "#a6885b" "#e8ab51" "#f2b851" "#f4c444" "#e8d089"
 #> attr(,"class")
 #> [1] "palette"
 #> attr(,"name")
 #> [1] "cutthroat2"
+```
+
+``` r
 ggtrout_palette("cutthroat3")
 #> [1] "#e8ab51" "#f2b851" "#f4c444" "#e8d089" "#dab78d" "#c3a491" "#9f8878"
 #> [8] "#a47e74" "#715852"
@@ -150,6 +159,9 @@ ggtrout_palette("cutthroat3")
 #> [1] "palette"
 #> attr(,"name")
 #> [1] "cutthroat3"
+```
+
+``` r
 ggtrout_palette("greenback")
 #> [1] "#3e474a" "#626d5d" "#877956" "#d5ca99" "#b8ae8b" "#aa928d" "#b08848"
 #> [8] "#b65f31"
