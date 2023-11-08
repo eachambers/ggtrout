@@ -92,7 +92,7 @@ print.palette <- function(x, ...) {
         ylab = "", xaxt = "n", yaxt = "n", bty = "n")
 
   graphics::rect(0, 0.9, n + 1, 1.1, col = grDevices::rgb(1, 1, 1, 0.8), border = NA)
-  graphics::text((n + 1) / 2, 1, labels = attr(x, "name"), cex = 1.5)
+  graphics::text((n + 1) / 2, 1, labels = attr(x, "name"), cex = 1)
 }
 
 #' Check whether ggtrout palettes are colorblind friendly
