@@ -41,11 +41,11 @@ names(ggtrout_palettes)
 
 There are 10 palettes available in the ggtrout package, each named based on the species for which the palette is inspired. Five are qualitative, three are diverging, and two are monochromatic. You can have the package tell you which is which using the `ggtrout_types()` function. For example:
 
-```{r palette types}
+```{r palette types, message = FALSE}
 library(dplyr)
 library(tibble)
 # For an individual palette's type:
-ggtrout_type("rainbow_blue")
+ggtrout_type("rainbow2")
 
 # For only monochromatic palettes:
 ggtrout_type("monochromatic")
@@ -56,7 +56,7 @@ ggtrout_type("all")
 
 You can check the degree of colorblind friendliness for each of the ggtrout palettes using the `ggtrout_cb()` function. In general, the diverging palettes (i.e., "brook1", "cutthroat1", and "rainbow1") are the most colorblind friendly. This function uses the `palette_check()` function in the colorblindcheck package; a general rule of thumb is to select palettes that have a min_dist of ~8 for all color vision deficiencies.
 
-```{r colorblind}
+```{r colorblind, message = FALSE}
 library(colorblindcheck)
 ggtrout_cb("brook1")
 ```
@@ -71,9 +71,15 @@ Let's go through all the palettes, grouped by (sub)species.
 
 Brook trout (*Salvelinus fontinalis*), when breeding, have bright orange-red pelvic and pectoral fins and brilliant red lateral spots ringed with a grey-blue. There are three brookie-inspired palettes.
 
-```{r brookie}
+```{r brookie1}
 ggtrout_palette("brook1")
+```
+
+```{r brookie2}
 ggtrout_palette("brook2")
+```
+
+```{r brookie3}
 ggtrout_palette("brook3")
 ```
 
@@ -104,7 +110,7 @@ ggtrout_palette("rainbow3")
 
 Below are some examples of using the ggtrout palettes with example data. As you can see, you can adapt these palettes for use in `ggplot2()`.
 
-```{r examples}
+```{r examples, message = FALSE}
 library(ggplot2)
 # ggplot(mtcars, aes(factor(cyl), fill = factor(vs))) +  geom_bar() +
 #   scale_fill_manual(values = ggtrout_palette("brook1"))

@@ -42,18 +42,10 @@ example:
 
 ``` r
 library(dplyr)
-#> 
-#> Attaching package: 'dplyr'
-#> The following objects are masked from 'package:stats':
-#> 
-#>     filter, lag
-#> The following objects are masked from 'package:base':
-#> 
-#>     intersect, setdiff, setequal, union
 library(tibble)
 # For an individual palette's type:
-ggtrout_type("rainbow_blue")
-#> character(0)
+ggtrout_type("rainbow2")
+#> [1] "diverging"
 
 # For only monochromatic palettes:
 ggtrout_type("monochromatic")
@@ -104,12 +96,18 @@ ggtrout_palette("brook1")
 #> [1] "palette"
 #> attr(,"name")
 #> [1] "brook1"
+```
+
+``` r
 ggtrout_palette("brook2")
 #> [1] "#ac7d0d" "#bd9500" "#d9bb01" "#e8ce63" "#edd68b"
 #> attr(,"class")
 #> [1] "palette"
 #> attr(,"name")
 #> [1] "brook2"
+```
+
+``` r
 ggtrout_palette("brook3")
 #> [1] "#ac7d0d" "#bd9500" "#d9bb01" "#e8ce63" "#ffd1b3" "#f3a567" "#e68114"
 #> [8] "#eb6036" "#df3d3a"
