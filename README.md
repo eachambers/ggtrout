@@ -186,6 +186,9 @@ ggtrout_palette("rainbow1")
 #> [1] "palette"
 #> attr(,"name")
 #> [1] "rainbow1"
+```
+
+``` r
 ggtrout_palette("rainbow2")
 #> [1] "#727c8a" "#7d899b" "#b5bec8" "#cdd3d6" "#dbe2de" "#b0ccea" "#93abd8"
 #> [8] "#9ba0d2" "#7884c4"
@@ -193,6 +196,9 @@ ggtrout_palette("rainbow2")
 #> [1] "palette"
 #> attr(,"name")
 #> [1] "rainbow2"
+```
+
+``` r
 ggtrout_palette("rainbow3")
 #> [1] "#5f6853" "#abb285" "#ccb3d7" "#88a1c6" "#f39e87" "#9d9995" "#906530"
 #> [8] "#ad4738"
@@ -206,26 +212,104 @@ ggtrout_palette("rainbow3")
 
 ------------------------------------------------------------------------
 
-Below are some examples of using the ggtrout palettes with example data.
-As you can see, you can adapt these palettes for use in `ggplot2()`.
+Below are some examples of using the ggtrout palettes. As you can see,
+you can adapt these palettes for use in `ggplot2()`.
 
 ``` r
 library(ggplot2)
-# ggplot(mtcars, aes(factor(cyl), fill = factor(vs))) +  geom_bar() +
-#   scale_fill_manual(values = ggtrout_palette("brook1"))
-# 
-# pal <- ggtrout_palette("greenback", 12, type = "continuous")
-# image(volcano, col = pal)
-# 
-# pal <- ggtrout_palette("cutthroat3", 100, type = "continuous")
-# 
-# ggplot(heatmap, aes(x = X2, y = X1, fill = value)) +
-#   geom_tile() +
-#   scale_fill_gradientn(colours = pal, trans = "reverse") +
-#   scale_x_discrete(expand = c(0, 0)) +
-#   scale_y_discrete(expand = c(0, 0)) +
-#   coord_equal()
+library(cowplot)
+library(tibble)
+library(dplyr)
+library(elevatr)
+library(readr)
+library(dataRetrieval)
+library(tidyr)
+theme_set(theme_cowplot())
+
+ggplot(Orange, aes(x = circumference, y = age, color = Tree)) +
+  geom_point(size = 3, alpha = 0.8) +
+  scale_color_manual(values = ggtrout_palette("brook1"))
 ```
+
+<img src="man/figures/README-examples-1.png" width="100%" />
+
+``` r
+
+pal <- ggtrout_palette("greenback", 12, type = "continuous")
+image(volcano, col = pal)
+```
+
+<img src="man/figures/README-examples-2.png" width="100%" />
+
+``` r
+
+ggplot(faithfuld, aes(waiting, eruptions)) +
+  geom_raster(aes(fill = density), interpolate = TRUE) +
+  scale_fill_gradientn(colors = ggtrout_palette("cutthroat2"))
+```
+
+<img src="man/figures/README-examples-3.png" width="100%" />
+
+The package also has some fun Colorado-themed example datasets which can
+be loaded using the `load_trout_example()` function.
+
+``` r
+load_trout_example()
+#> 
+#> ---------------- Example data ----------------
+#>  
+#> Objects loaded: 
+#> *chibasin* elevation data for the Chicago Basin, CO 
+#> *bluelakes* elevation data for Blue Lakes, CO 
+#> *animas* Daily water temperature for the Animas River from 2016-2023 
+#> 
+#> -------------------------------------------------
+#> 
+```
+
+Let’s take a look at the digital elevation map for the Chicago Basin and
+surrounding area using a diverging palette:
+
+``` r
+pal <- ggtrout_palette("cutthroat3", 100, type = "continuous")
+ggplot(chibasin, aes(x, y, fill = elevation)) +
+  geom_raster() +
+  coord_equal() +
+  scale_fill_gradientn(colors = pal, trans = "reverse") +
+  theme_void()
+```
+
+<img src="man/figures/README-chicagobasin-1.png" width="100%" />
+
+Or the DEM for Blue Lakes using a different diverging palette:
+
+``` r
+pal <- ggtrout_palette("brook3", 100, type = "continuous")
+ggplot(bluelakes, aes(x, y, fill = elevation)) +
+  geom_raster() +
+  coord_equal() +
+  scale_fill_gradientn(colors = pal) +
+  theme_void()
+```
+
+<img src="man/figures/README-bluelakes-1.png" width="100%" />
+
+Or we could take a look at daily water temperature of the Animas River
+(measured in Durango, CO) from 2016 to 2023 using a qualitative palette:
+
+``` r
+ggplot(animas, aes(x = date, y = water_temp, group = year, color = year)) +
+  geom_line(alpha = 0.75) +
+  theme(axis.text.x = element_blank(),
+        axis.ticks.x = element_blank()) +
+  xlab("Date") +
+  ylab("Water temperature (Celsius)") +
+  ggtitle("Animas River water temperature (2016-2023)") +
+  scale_color_manual(values = ggtrout_palette("rainbow3")) +
+  facet_grid(~year)
+```
+
+<img src="man/figures/README-animas-1.png" width="100%" />
 
 ## Acknowledgements
 

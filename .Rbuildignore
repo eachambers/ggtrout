@@ -2,3 +2,4 @@
 ^renv\.lock$
 ^ggtrout\.Rproj$
 ^\.Rproj\.user$
+^data-raw$

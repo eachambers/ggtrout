@@ -55,7 +55,7 @@ ggtrout_type("monochromatic")
 ggtrout_type("all")
 ```
 
-You can check the degree of colorblind friendliness for each of the ggtrout palettes using the `ggtrout_cb()` function. In general, the diverging palettes (i.e., "brook1", "cutthroat1", and "rainbow1") are the most colorblind friendly. This function uses the `palette_check()` function in the colorblindcheck package; a general rule of thumb is to select palettes that have a min_dist of ~8 for all color vision deficiencies.
+You can check the degree of colorblind friendliness for each of the ggtrout palettes using the `ggtrout_cb()` function. In general, the diverging palettes (i.e., "brook1", "cutthroat1", and "rainbow1") are the most colorblind friendly. This function uses the `palette_check()` function in the colorblindcheck package; a general rule of thumb is to select palettes that have a min_dist of \~8 for all color vision deficiencies.
 
 ```{r colorblind, message = FALSE}
 library(colorblindcheck)
@@ -109,9 +109,15 @@ ggtrout_palette("greenback")
 
 Rainbow trout (*Oncorhynchus mykiss*) is a widely distributed species that has been introduced to freshwater habitats across the U.S. so it's generally a little less exciting than the other trout. Their coloration is quite stunning though! There are three rainbow-inspired palettes.
 
-```{r rainbow}
+```{r rainbow1}
 ggtrout_palette("rainbow1")
+```
+
+```{r rainbow2}
 ggtrout_palette("rainbow2")
+```
+
+```{r rainbow3}
 ggtrout_palette("rainbow3")
 ```
 
@@ -119,24 +125,71 @@ ggtrout_palette("rainbow3")
 
 ------------------------------------------------------------------------
 
-Below are some examples of using the ggtrout palettes with example data. As you can see, you can adapt these palettes for use in `ggplot2()`.
+Below are some examples of using the ggtrout palettes. As you can see, you can adapt these palettes for use in `ggplot2()`. 
 
-```{r examples, message = FALSE}
+```{r examples, message = FALSE, fig.width = 5, fig.height = 5}
 library(ggplot2)
-# ggplot(mtcars, aes(factor(cyl), fill = factor(vs))) +  geom_bar() +
-#   scale_fill_manual(values = ggtrout_palette("brook1"))
-# 
-# pal <- ggtrout_palette("greenback", 12, type = "continuous")
-# image(volcano, col = pal)
-# 
-# pal <- ggtrout_palette("cutthroat3", 100, type = "continuous")
-# 
-# ggplot(heatmap, aes(x = X2, y = X1, fill = value)) +
-#   geom_tile() +
-#   scale_fill_gradientn(colours = pal, trans = "reverse") +
-#   scale_x_discrete(expand = c(0, 0)) +
-#   scale_y_discrete(expand = c(0, 0)) +
-#   coord_equal()
+library(cowplot)
+library(tibble)
+library(dplyr)
+library(elevatr)
+library(readr)
+library(dataRetrieval)
+library(tidyr)
+theme_set(theme_cowplot())
+
+ggplot(Orange, aes(x = circumference, y = age, color = Tree)) +
+  geom_point(size = 3, alpha = 0.8) +
+  scale_color_manual(values = ggtrout_palette("brook1"))
+
+pal <- ggtrout_palette("greenback", 12, type = "continuous")
+image(volcano, col = pal)
+
+ggplot(faithfuld, aes(waiting, eruptions)) +
+  geom_raster(aes(fill = density), interpolate = TRUE) +
+  scale_fill_gradientn(colors = ggtrout_palette("cutthroat2"))
+```
+
+The package also has some fun Colorado-themed example datasets which can be loaded using the `load_trout_example()` function. 
+
+```{r troutex}
+load_trout_example()
+```
+
+Let's take a look at the digital elevation map for the Chicago Basin and surrounding area using a diverging palette:
+
+```{r chicagobasin}
+pal <- ggtrout_palette("cutthroat3", 100, type = "continuous")
+ggplot(chibasin, aes(x, y, fill = elevation)) +
+  geom_raster() +
+  coord_equal() +
+  scale_fill_gradientn(colors = pal, trans = "reverse") +
+  theme_void()
+```
+
+Or the DEM for Blue Lakes using a different diverging palette:
+
+```{r bluelakes}
+pal <- ggtrout_palette("brook3", 100, type = "continuous")
+ggplot(bluelakes, aes(x, y, fill = elevation)) +
+  geom_raster() +
+  coord_equal() +
+  scale_fill_gradientn(colors = pal) +
+  theme_void()
+```
+
+Or we could take a look at daily water temperature of the Animas River (measured in Durango, CO) from 2016 to 2023 using a qualitative palette:
+
+```{r animas}
+ggplot(animas, aes(x = date, y = water_temp, group = year, color = year)) +
+  geom_line(alpha = 0.75) +
+  theme(axis.text.x = element_blank(),
+        axis.ticks.x = element_blank()) +
+  xlab("Date") +
+  ylab("Water temperature (Celsius)") +
+  ggtitle("Animas River water temperature (2016-2023)") +
+  scale_color_manual(values = ggtrout_palette("rainbow3")) +
+  facet_grid(~year)
 ```
 
 ## Acknowledgements
