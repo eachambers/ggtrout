@@ -28,7 +28,7 @@ devtools::install_github("eachambers/ggtrout")
 ```
 
 Libraries you'll want to load to use the package are as follows:
-```{r libs}
+```{r libs, message=FALSE}
 library(ggtrout)
 library(tidyverse)
 library(cowplot)
@@ -41,7 +41,7 @@ theme_set(theme_cowplot())
 
 <img src="man/figures/cuttie.jpg" align="center" height="350"/>
 
-There are 10 palettes available in the ggtrout package, each named based on the species for which the palette is inspired. Five are qualitative, three are diverging, and two are monochromatic. Let's go through all the palettes, grouped by (sub)species. In general, you can access and view the palettes using the `ggtrout_palette()` function like so:
+There are 10 palettes available in the ggtrout package, each named based on the species for which the palette is inspired. Five are qualitative, three are diverging, and two are monochromatic. Let's go through all the palettes, grouped by (sub)species. In general, you can access and view the palettes using the `ggtrout_palette()` function:
 
 ```{r palette}
 # ggtrout_palette("brook1")

@@ -26,23 +26,7 @@ Libraries you’ll want to load to use the package are as follows:
 ``` r
 library(ggtrout)
 library(tidyverse)
-#> ── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
-#> ✔ dplyr     1.1.2     ✔ readr     2.1.4
-#> ✔ forcats   1.0.0     ✔ stringr   1.5.0
-#> ✔ ggplot2   3.4.3     ✔ tibble    3.2.1
-#> ✔ lubridate 1.9.2     ✔ tidyr     1.3.0
-#> ✔ purrr     1.0.2     
-#> ── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
-#> ✖ dplyr::filter() masks stats::filter()
-#> ✖ dplyr::lag()    masks stats::lag()
-#> ℹ Use the conflicted package (<http://conflicted.r-lib.org/>) to force all conflicts to become errors
 library(cowplot)
-#> 
-#> Attaching package: 'cowplot'
-#> 
-#> The following object is masked from 'package:lubridate':
-#> 
-#>     stamp
 theme_set(theme_cowplot())
 ```
 
@@ -56,7 +40,7 @@ There are 10 palettes available in the ggtrout package, each named based
 on the species for which the palette is inspired. Five are qualitative,
 three are diverging, and two are monochromatic. Let’s go through all the
 palettes, grouped by (sub)species. In general, you can access and view
-the palettes using the `ggtrout_palette()` function like so:
+the palettes using the `ggtrout_palette()` function:
 
 ``` r
 # ggtrout_palette("brook1")
