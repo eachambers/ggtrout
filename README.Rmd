@@ -13,7 +13,7 @@ knitr::opts_chunk$set(
 )
 ```
 
-# ggtrout <img src="man/figures/logo.png" align="right" height="200"/>
+# ggtrout <img src="man/figures/logo.png" align="right" height="220"/>
 
 Are you so obsessed with trout that you want to incorporate their coloration into your data visualizations? Look no further! This package provides ten color palettes inspired by several species (and subspecies) of trout that inhabit pristine habitats across the United States. The package's framework is designed for use in the tidyverse but can also be used for base R plotting.
 

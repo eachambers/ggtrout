@@ -23,6 +23,7 @@ ggtrout_palettes <- list(
 #' @param name name of palette. Options are: `"brook1"`, `"brook2"`, `"brook3"`, `"cutthroat1"`, `"cutthroat2"`, `"cutthroat3"`, `"rainbow1"`, `"rainbow2"`, `"rainbow3"`, `"greenback"`
 #' @param n number of desired colors in palette; defaults to all colors in given palette.
 #' @param type either `"continuous"` or `"discrete"` (default). Using `"continuous"` will automatically interpolate between colors.
+#' @importFrom graphics rect par image text
 #'
 #' @return a vector of colors
 #' @export

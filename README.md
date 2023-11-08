@@ -1,7 +1,7 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# ggtrout <img src="man/figures/logo.png" align="right" height="200"/>
+# ggtrout <img src="man/figures/logo.png" align="right" height="220"/>
 
 Are you so obsessed with trout that you want to incorporate their
 coloration into your data visualizations? Look no further! This package
