@@ -1,7 +1,7 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# ggtrout <img src="man/figures/logo.png" align="right" height="160"/>
+# ggtrout <img src="man/figures/logo.png" align="right" height="200"/>
 
 Are you so obsessed with trout that you want to incorporate their
 coloration into your data visualizations? Look no further! This package
@@ -96,38 +96,19 @@ ringed with a grey-blue. There are three brookie-inspired palettes.
 ggtrout_palette("brook1")
 ```
 
-<img src="man/figures/README-brookie1-1.png" width="100%" /><img src="man/figures/README-brookie1-2.png" width="100%" />
-
-    #> [1] "#df3d3a" "#d9bb01" "#e0902e" "#92a1c6" "#757877" "#563c2a" "#babfb4"
-    #> attr(,"class")
-    #> [1] "palette"
-    #> attr(,"name")
-    #> [1] "brook1"
+<img src="man/figures/README-brookie1-1.png" width="100%" />
 
 ``` r
 ggtrout_palette("brook2")
 ```
 
-<img src="man/figures/README-brookie2-1.png" width="100%" /><img src="man/figures/README-brookie2-2.png" width="100%" />
-
-    #> [1] "#ac7d0d" "#bd9500" "#d9bb01" "#e8ce63" "#edd68b"
-    #> attr(,"class")
-    #> [1] "palette"
-    #> attr(,"name")
-    #> [1] "brook2"
+<img src="man/figures/README-brookie2-1.png" width="100%" />
 
 ``` r
 ggtrout_palette("brook3")
 ```
 
-<img src="man/figures/README-brookie3-1.png" width="100%" /><img src="man/figures/README-brookie3-2.png" width="100%" />
-
-    #> [1] "#ac7d0d" "#bd9500" "#d9bb01" "#e8ce63" "#ffd1b3" "#f3a567" "#e68114"
-    #> [8] "#eb6036" "#df3d3a"
-    #> attr(,"class")
-    #> [1] "palette"
-    #> attr(,"name")
-    #> [1] "brook3"
+<img src="man/figures/README-brookie3-1.png" width="100%" />
 
 ### Cutthroat trout
 
@@ -146,51 +127,25 @@ cuttie-inspired palettes.
 ggtrout_palette("cutthroat1")
 ```
 
-<img src="man/figures/README-cuttie1-1.png" width="100%" /><img src="man/figures/README-cuttie1-2.png" width="100%" />
-
-    #> [1] "#e8d089" "#eeb054" "#715852" "#ea5c2e" "#cb7086" "#886c54" "#969cad"
-    #> attr(,"class")
-    #> [1] "palette"
-    #> attr(,"name")
-    #> [1] "cutthroat1"
+<img src="man/figures/README-cuttie1-1.png" width="100%" />
 
 ``` r
 ggtrout_palette("cutthroat2")
 ```
 
-<img src="man/figures/README-cuttie2-1.png" width="100%" /><img src="man/figures/README-cuttie2-2.png" width="100%" />
-
-    #> [1] "#81654d" "#a6885b" "#e8ab51" "#f2b851" "#f4c444" "#e8d089"
-    #> attr(,"class")
-    #> [1] "palette"
-    #> attr(,"name")
-    #> [1] "cutthroat2"
+<img src="man/figures/README-cuttie2-1.png" width="100%" />
 
 ``` r
 ggtrout_palette("cutthroat3")
 ```
 
-<img src="man/figures/README-cuttie3-1.png" width="100%" /><img src="man/figures/README-cuttie3-2.png" width="100%" />
-
-    #> [1] "#e8ab51" "#f2b851" "#f4c444" "#e8d089" "#dab78d" "#c3a491" "#9f8878"
-    #> [8] "#a47e74" "#715852"
-    #> attr(,"class")
-    #> [1] "palette"
-    #> attr(,"name")
-    #> [1] "cutthroat3"
+<img src="man/figures/README-cuttie3-1.png" width="100%" />
 
 ``` r
 ggtrout_palette("greenback")
 ```
 
-<img src="man/figures/README-greenback-1.png" width="100%" /><img src="man/figures/README-greenback-2.png" width="100%" />
-
-    #> [1] "#3e474a" "#626d5d" "#877956" "#d5ca99" "#b8ae8b" "#aa928d" "#b08848"
-    #> [8] "#b65f31"
-    #> attr(,"class")
-    #> [1] "palette"
-    #> attr(,"name")
-    #> [1] "greenback"
+<img src="man/figures/README-greenback-1.png" width="100%" />
 
 ### Rainbow trout
 
@@ -203,40 +158,19 @@ is quite stunning though! There are three rainbow-inspired palettes.
 ggtrout_palette("rainbow1")
 ```
 
-<img src="man/figures/README-rainbow1-1.png" width="100%" /><img src="man/figures/README-rainbow1-2.png" width="100%" />
-
-    #> [1] "#799dc7" "#bbb0e7" "#897dca" "#b0ccea" "#727c8a" "#cdd3d6" "#baa5a7"
-    #> [8] "#847d6d"
-    #> attr(,"class")
-    #> [1] "palette"
-    #> attr(,"name")
-    #> [1] "rainbow1"
+<img src="man/figures/README-rainbow1-1.png" width="100%" />
 
 ``` r
 ggtrout_palette("rainbow2")
 ```
 
-<img src="man/figures/README-rainbow2-1.png" width="100%" /><img src="man/figures/README-rainbow2-2.png" width="100%" />
-
-    #> [1] "#727c8a" "#7d899b" "#b5bec8" "#cdd3d6" "#dbe2de" "#b0ccea" "#93abd8"
-    #> [8] "#9ba0d2" "#7884c4"
-    #> attr(,"class")
-    #> [1] "palette"
-    #> attr(,"name")
-    #> [1] "rainbow2"
+<img src="man/figures/README-rainbow2-1.png" width="100%" />
 
 ``` r
 ggtrout_palette("rainbow3")
 ```
 
-<img src="man/figures/README-rainbow3-1.png" width="100%" /><img src="man/figures/README-rainbow3-2.png" width="100%" />
-
-    #> [1] "#5f6853" "#abb285" "#ccb3d7" "#88a1c6" "#f39e87" "#9d9995" "#906530"
-    #> [8] "#ad4738"
-    #> attr(,"class")
-    #> [1] "palette"
-    #> attr(,"name")
-    #> [1] "rainbow3"
+<img src="man/figures/README-rainbow3-1.png" width="100%" />
 
 ## Examples
 
@@ -270,20 +204,15 @@ ggplot(Orange, aes(x = circumference, y = age, color = Tree)) +
   scale_color_manual(values = ggtrout_palette("brook1"))
 ```
 
-<img src="man/figures/README-examples-1.png" width="100%" /><img src="man/figures/README-examples-2.png" width="100%" /><img src="man/figures/README-examples-3.png" width="100%" />
+<img src="man/figures/README-examples-1.png" width="100%" />
 
 ``` r
 
 pal <- ggtrout_palette("greenback", 12, type = "continuous")
-```
-
-<img src="man/figures/README-examples-4.png" width="100%" /><img src="man/figures/README-examples-5.png" width="100%" />
-
-``` r
 image(volcano, col = pal)
 ```
 
-<img src="man/figures/README-examples-6.png" width="100%" />
+<img src="man/figures/README-examples-2.png" width="100%" />
 
 ``` r
 
@@ -292,7 +221,7 @@ ggplot(faithfuld, aes(waiting, eruptions)) +
   scale_fill_gradientn(colors = ggtrout_palette("cutthroat2"))
 ```
 
-<img src="man/figures/README-examples-7.png" width="100%" /><img src="man/figures/README-examples-8.png" width="100%" /><img src="man/figures/README-examples-9.png" width="100%" />
+<img src="man/figures/README-examples-3.png" width="100%" />
 
 The package also has some fun Colorado-themed example datasets which can
 be loaded using the `load_trout_example()` function.
@@ -316,11 +245,6 @@ surrounding area using a diverging palette:
 
 ``` r
 pal <- ggtrout_palette("cutthroat3", 100, type = "continuous")
-```
-
-<img src="man/figures/README-chicagobasin-1.png" width="100%" /><img src="man/figures/README-chicagobasin-2.png" width="100%" />
-
-``` r
 ggplot(chibasin, aes(x, y, fill = elevation)) +
   geom_raster() +
   coord_equal() +
@@ -328,17 +252,12 @@ ggplot(chibasin, aes(x, y, fill = elevation)) +
   theme_void()
 ```
 
-<img src="man/figures/README-chicagobasin-3.png" width="100%" />
+<img src="man/figures/README-chicagobasin-1.png" width="100%" />
 
 Or the DEM for Blue Lakes using a different diverging palette:
 
 ``` r
 pal <- ggtrout_palette("brook3", 100, type = "continuous")
-```
-
-<img src="man/figures/README-bluelakes-1.png" width="100%" /><img src="man/figures/README-bluelakes-2.png" width="100%" />
-
-``` r
 ggplot(bluelakes, aes(x, y, fill = elevation)) +
   geom_raster() +
   coord_equal() +
@@ -346,7 +265,7 @@ ggplot(bluelakes, aes(x, y, fill = elevation)) +
   theme_void()
 ```
 
-<img src="man/figures/README-bluelakes-3.png" width="100%" />
+<img src="man/figures/README-bluelakes-1.png" width="100%" />
 
 Or we could take a look at daily water temperature of the Animas River
 (measured in Durango, CO) from 2016 to 2023 using a qualitative palette:
@@ -363,7 +282,7 @@ ggplot(animas, aes(x = date, y = water_temp, group = year, color = year)) +
   facet_grid(~year)
 ```
 
-<img src="man/figures/README-animas-1.png" width="100%" /><img src="man/figures/README-animas-2.png" width="100%" /><img src="man/figures/README-animas-3.png" width="100%" />
+<img src="man/figures/README-animas-1.png" width="100%" />
 
 ## Acknowledgements
 

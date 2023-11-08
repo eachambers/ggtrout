@@ -13,7 +13,7 @@ knitr::opts_chunk$set(
 )
 ```
 
-# ggtrout <img src="man/figures/logo.png" align="right" height="160"/>
+# ggtrout <img src="man/figures/logo.png" align="right" height="200"/>
 
 Are you so obsessed with trout that you want to incorporate their coloration into your data visualizations? Look no further! This package provides ten color palettes inspired by several species (and subspecies) of trout that inhabit pristine habitats across the United States. The package's framework is designed for use in the tidyverse but can also be used for base R plotting.
 
@@ -73,15 +73,15 @@ Let's go through all the palettes, grouped by (sub)species.
 
 Brook trout (*Salvelinus fontinalis*), when breeding, have bright orange-red pelvic and pectoral fins and brilliant red lateral spots ringed with a grey-blue. There are three brookie-inspired palettes.
 
-```{r brookie1}
+```{r brookie1, message = FALSE}
 ggtrout_palette("brook1")
 ```
 
-```{r brookie2}
+```{r brookie2, message = FALSE}
 ggtrout_palette("brook2")
 ```
 
-```{r brookie3}
+```{r brookie3, message = FALSE}
 ggtrout_palette("brook3")
 ```
 
@@ -89,19 +89,19 @@ ggtrout_palette("brook3")
 
 Cutthroat trout (*Oncorhynchus clarkii*) are named for their bright blood-red fin arch coloration. This species has many subspecies, and the ggtrout package is inspired by two Coloradan subspecies: the Colorado River cutthroat (*O. c. pleuriticus*) and the greenback cutthroat (*O. c. stomias*). The greenback has a fun history: it was presumed extinct in the 1930s until its rediscovery in a restricted river basin in Colorado in 1957. Since then, massive conservation efforts have been focused on reintroducing the subspecies into its historic range; the greenback is also the state fish of Colorado! There are four cuttie-inspired palettes.
 
-```{r cuttie1}
+```{r cuttie1, message = FALSE}
 ggtrout_palette("cutthroat1")
 ```
 
-```{r cuttie2}
+```{r cuttie2, message = FALSE}
 ggtrout_palette("cutthroat2")
 ```
 
-```{r cuttie3}
+```{r cuttie3, message = FALSE}
 ggtrout_palette("cutthroat3")
 ```
 
-```{r greenback}
+```{r greenback, message = FALSE}
 ggtrout_palette("greenback")
 ```
 
@@ -109,15 +109,15 @@ ggtrout_palette("greenback")
 
 Rainbow trout (*Oncorhynchus mykiss*) is a widely distributed species that has been introduced to freshwater habitats across the U.S. so it's generally a little less exciting than the other trout. Their coloration is quite stunning though! There are three rainbow-inspired palettes.
 
-```{r rainbow1}
+```{r rainbow1, message = FALSE}
 ggtrout_palette("rainbow1")
 ```
 
-```{r rainbow2}
+```{r rainbow2, message = FALSE}
 ggtrout_palette("rainbow2")
 ```
 
-```{r rainbow3}
+```{r rainbow3, message = FALSE}
 ggtrout_palette("rainbow3")
 ```
 

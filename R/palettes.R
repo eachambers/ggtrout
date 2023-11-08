@@ -23,7 +23,6 @@ ggtrout_palettes <- list(
 #' @param name name of palette. Options are: `"brook1"`, `"brook2"`, `"brook3"`, `"cutthroat1"`, `"cutthroat2"`, `"cutthroat3"`, `"rainbow1"`, `"rainbow2"`, `"rainbow3"`, `"greenback"`
 #' @param n number of desired colors in palette; defaults to all colors in given palette.
 #' @param type either `"continuous"` or `"discrete"` (default). Using `"continuous"` will automatically interpolate between colors.
-#' @param quiet whether to print palette to screen (defaults to FALSE)
 #'
 #' @return a vector of colors
 #' @export
@@ -31,7 +30,7 @@ ggtrout_palettes <- list(
 #' ggtrout_palette(name = "brook1", type = "continuous")
 #' ggtrout_palette(name = "rainbow3", n = 3)
 #'
-ggtrout_palette <- function(name, n, type = c("discrete", "continuous"), quiet = FALSE) {
+ggtrout_palette <- function(name, n, type = c("discrete", "continuous")) {
   type <- match.arg(type)
   pal <- ggtrout_palettes[[name]][[1]]
 
@@ -50,32 +49,7 @@ ggtrout_palette <- function(name, n, type = c("discrete", "continuous"), quiet =
                 continuous = grDevices::colorRampPalette(pal)(n),
                 discrete = pal[1:n]
   )
-  if (!quiet) print(print_palette(out, name))
   structure(out, class = "palette", name = name)
-}
-
-#' Helper function to print palettes
-#'
-#' @param x palette
-#' @param name palette name
-#'
-#' @return prints palette
-#' @export
-print_palette <- function(x, name) {
-  pal <- as_tibble(x)
-  vals <- sapply(pal, `[`, 1:nrow(pal))
-  # name <- attributes(x)["name"]$name
-
-  p <- ggplot2::ggplot(data = pal, ggplot2::aes(x = 1:nrow(pal), y = 1, fill = x, label = name)) +
-    ggplot2::geom_tile() +
-    ggplot2::scale_fill_manual(values = vals) +
-    ggplot2::theme_void() +
-    ggplot2::ggtitle(name) +
-    ggplot2::theme(legend.position = "none",
-                   plot.title = ggplot2::element_text(hjust = 0.05, face = "bold", size = 18)) +
-    ggplot2::coord_equal()
-
-  print(p)
 }
 
 #' List whether palette is qualitative, diverging, or monochromatic
@@ -105,6 +79,21 @@ ggtrout_type <- function(name = "all") {
   print(result)
 }
 
+#' @export
+#' @importFrom graphics rect par image text
+#' @importFrom grDevices rgb
+print.palette <- function(x, ...) {
+  n <- length(x)
+  old <- par(mar = c(0.5, 0.5, 0.5, 0.5))
+  on.exit(par(old))
+
+  image(1:n, 1, as.matrix(1:n), col = x,
+        ylab = "", xaxt = "n", yaxt = "n", bty = "n")
+
+  rect(0, 0.9, n + 1, 1.1, col = rgb(1, 1, 1, 0.8), border = NA)
+  text((n + 1) / 2, 1, labels = attr(x, "name"), cex = 1.5)
+}
+
 #' Check whether ggtrout palettes are colorblind friendly
 #' Uses the \link[colorblindcheck]{palette_check} function
 #'
@@ -113,6 +102,6 @@ ggtrout_type <- function(name = "all") {
 #' @return values for color vision deficiencies
 #' @export
 ggtrout_cb <- function(name) {
-  pal <- ggtrout_palette("rainbow1", quiet = TRUE)
+  pal <- ggtrout_palette("rainbow1")
   colorblindcheck::palette_check(pal)
 }

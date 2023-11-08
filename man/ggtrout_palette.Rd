@@ -4,7 +4,7 @@
 \alias{ggtrout_palette}
 \title{Generates ggtrout palette}
 \usage{
-ggtrout_palette(name, n, type = c("discrete", "continuous"), quiet = FALSE)
+ggtrout_palette(name, n, type = c("discrete", "continuous"))
 }
 \arguments{
 \item{name}{name of palette. Options are: \code{"brook1"}, \code{"brook2"}, \code{"brook3"}, \code{"cutthroat1"}, \code{"cutthroat2"}, \code{"cutthroat3"}, \code{"rainbow1"}, \code{"rainbow2"}, \code{"rainbow3"}, \code{"greenback"}}
@@ -12,8 +12,6 @@ ggtrout_palette(name, n, type = c("discrete", "continuous"), quiet = FALSE)
 \item{n}{number of desired colors in palette; defaults to all colors in given palette.}
 
 \item{type}{either \code{"continuous"} or \code{"discrete"} (default). Using \code{"continuous"} will automatically interpolate between colors.}
-
-\item{quiet}{whether to print palette to screen (defaults to FALSE)}
 }
 \value{
 a vector of colors
