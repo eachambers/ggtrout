@@ -88,6 +88,8 @@ print.palette <- function(x, ...) {
   old <- par(mar = c(0.5, 0.5, 0.5, 0.5))
   on.exit(par(old))
 
+  # image(x and y are gridlines,
+  # z has values for colors)
   graphics::image(1:n, 1, as.matrix(1:n), col = x,
         ylab = "", xaxt = "n", yaxt = "n", bty = "n")
 

@@ -90,7 +90,7 @@ Let’s go through all the palettes, grouped by (sub)species.
 
 Brook trout (*Salvelinus fontinalis*), when breeding, have bright
 orange-red pelvic and pectoral fins and brilliant red lateral spots
-ringed with a grey-blue. There are three brookie-inspired palettes.
+ringed with a grey-blue. There are three brookie-inspired palettes:
 
 ``` r
 ggtrout_palette("brook1")
