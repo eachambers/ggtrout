@@ -79,7 +79,7 @@ Let's go through all the palettes, grouped by (sub)species. In general, you can 
 
 Brook trout (*Salvelinus fontinalis*), when breeding, have bright orange-red pelvic and pectoral fins and brilliant red lateral spots ringed with a grey-blue. There are three brookie-inspired palettes:
 
-```{r brookie, message = FALSE, fig.width=1.5, fig.height=2.5}
+```{r brookie, message = FALSE}
 grid_palettes("brook")
 ```
 
@@ -87,15 +87,15 @@ grid_palettes("brook")
 
 Cutthroat trout (*Oncorhynchus clarkii*) are named for their bright blood-red fin arch coloration. This species has many subspecies, and the ggtrout package is inspired by two Coloradan subspecies: the Colorado River cutthroat (*O. c. pleuriticus*) and the greenback cutthroat (*O. c. stomias*). The greenback has a fun history: it was presumed extinct in the 1930s until its rediscovery in a restricted river basin in Colorado in 1957. Since then, massive conservation efforts have been focused on reintroducing the subspecies into its historic range; the greenback is also the state fish of Colorado! There are four cuttie-inspired palettes:
 
-```{r cuttie, message = FALSE, fig.width=1.5, fig.height=3}
+```{r cuttie, message = FALSE}
 grid_palettes("cutthroat")
 ```
 
 ### Rainbow trout
 
-Rainbow trout (*Oncorhynchus mykiss*) is a widely distributed species that has been introduced to freshwater habitats across the U.S. so it's generally a little less exciting than the other trout. Their coloration is quite stunning though! There are three rainbow-inspired palettes.
+Rainbow trout (*Oncorhynchus mykiss*) is a widely distributed species that has been introduced to freshwater habitats across the U.S. so it's generally a little less exciting than the other trout. Their coloration is quite stunning though! There are three rainbow-inspired palettes:
 
-```{r rainbow, message = FALSE, fig.width=1.5, fig.height=2.5}
+```{r rainbow, message = FALSE}
 grid_palettes("rainbow")
 ```
 
