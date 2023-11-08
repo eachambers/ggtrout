@@ -130,7 +130,7 @@ grid_palettes("cutthroat")
 Rainbow trout (*Oncorhynchus mykiss*) is a widely distributed species
 that has been introduced to freshwater habitats across the U.S. so it’s
 generally a little less exciting than the other trout. Their coloration
-is quite stunning though! There are three rainbow-inspired palettes:
+is quite stunning though! There are three rainbow-inspired palettes.
 
 ``` r
 grid_palettes("rainbow")

@@ -164,6 +164,6 @@ plot_helper <- function(pal) {
     ggplot2::theme_void() +
     ggplot2::ggtitle(pal$name) +
     ggplot2::theme(legend.position = "none",
-                   plot.title = ggplot2::element_text(hjust = 0.05, face = "bold", size = 18)) +
+                   plot.title = ggplot2::element_text(hjust = 0.05, face = "bold", size = 12)) +
     ggplot2::coord_fixed()
 }
