@@ -16,17 +16,6 @@ ggtrout_palettes <- list(
   greenback = list(c("#3e474a", "#626d5d", "#877956", "#d5ca99", "#b8ae8b", "#aa928d", "#b08848", "#b65f31"), type = "qualitative")
 )
 
-# brook1 = c("#df3d3a", "#d9bb01", "#e0902e", "#92a1c6", "#757877", "#563c2a", "#babfb4")
-# brook2 = c("#ac7d0d", "#bd9500", "#d9bb01", "#e8ce63", "#edd68b")
-# brook3 = c("#ac7d0d", "#bd9500", "#d9bb01", "#e8ce63", "#ffd1b3", "#f3a567", "#e68114", "#eb6036", "#df3d3a")
-# cutthroat1 = c("#e8d089", "#eeb054", "#715852", "#ea5c2e", "#cb7086", "#886c54", "#969cad")
-# cutthroat2 = c("#81654d", "#a6885b", "#e8ab51", "#f2b851", "#f4c444", "#e8d089")
-# cutthroat3 = c("#e8ab51", "#f2b851", "#f4c444", "#e8d089", "#dab78d", "#c3a491", "#9f8878", "#a47e74", "#715852")
-# rainbow1 = c("#799dc7", "#bbb0e7", "#897dca", "#b0ccea", "#727c8a", "#cdd3d6", "#baa5a7", "#847d6d")
-# rainbow2 = c("#727c8a", "#7d899b", "#b5bec8", "#cdd3d6", "#dbe2de", "#b0ccea", "#93abd8", "#9ba0d2", "#7884c4")
-# rainbow3 = c("#5f6853", "#abb285", "#ccb3d7", "#88a1c6", "#f39e87", "#9d9995", "#906530", "#ad4738")
-# greenback = c("#626d5d", "#877956", "#b08848", "#d5ca99", "#b8ae8b", "#b65f31", "#3e474a", "#aa928d")
-
 #' Generates ggtrout palette
 #'
 #' This function is largely adapted from the `wes_palette()` function in the [wesanderson](https://github.com/karthik/wesanderson/tree/master) package.
@@ -34,6 +23,7 @@ ggtrout_palettes <- list(
 #' @param name name of palette. Options are: `"brook1"`, `"brook2"`, `"brook3"`, `"cutthroat1"`, `"cutthroat2"`, `"cutthroat3"`, `"rainbow1"`, `"rainbow2"`, `"rainbow3"`, `"greenback"`
 #' @param n number of desired colors in palette; defaults to all colors in given palette.
 #' @param type either `"continuous"` or `"discrete"` (default). Using `"continuous"` will automatically interpolate between colors.
+#' @param quiet whether to print palette to screen (defaults to FALSE)
 #'
 #' @return a vector of colors
 #' @export
@@ -41,7 +31,7 @@ ggtrout_palettes <- list(
 #' ggtrout_palette(name = "brook1", type = "continuous")
 #' ggtrout_palette(name = "rainbow3", n = 3)
 #'
-ggtrout_palette <- function(name, n, type = c("discrete", "continuous")) {
+ggtrout_palette <- function(name, n, type = c("discrete", "continuous"), quiet = FALSE) {
   type <- match.arg(type)
   pal <- ggtrout_palettes[[name]][[1]]
 
@@ -60,9 +50,33 @@ ggtrout_palette <- function(name, n, type = c("discrete", "continuous")) {
                 continuous = grDevices::colorRampPalette(pal)(n),
                 discrete = pal[1:n]
   )
+  if (!quiet) print(print_palette(out, name))
   structure(out, class = "palette", name = name)
 }
 
+#' Helper function to print palettes
+#'
+#' @param x palette
+#' @param name palette name
+#'
+#' @return prints palette
+#' @export
+print_palette <- function(x, name) {
+  pal <- as_tibble(x)
+  vals <- sapply(pal, `[`, 1:nrow(pal))
+  # name <- attributes(x)["name"]$name
+
+  p <- ggplot2::ggplot(data = pal, ggplot2::aes(x = 1:nrow(pal), y = 1, fill = x, label = name)) +
+    ggplot2::geom_tile() +
+    ggplot2::scale_fill_manual(values = vals) +
+    ggplot2::theme_void() +
+    ggplot2::ggtitle(name) +
+    ggplot2::theme(legend.position = "none",
+                   plot.title = ggplot2::element_text(hjust = 0.05, face = "bold", size = 18)) +
+    ggplot2::coord_equal()
+
+  print(p)
+}
 
 #' List whether palette is qualitative, diverging, or monochromatic
 #'
@@ -91,7 +105,6 @@ ggtrout_type <- function(name = "all") {
   print(result)
 }
 
-
 #' Check whether ggtrout palettes are colorblind friendly
 #' Uses the \link[colorblindcheck]{palette_check} function
 #'
@@ -100,6 +113,6 @@ ggtrout_type <- function(name = "all") {
 #' @return values for color vision deficiencies
 #' @export
 ggtrout_cb <- function(name) {
-  pal <- ggtrout_palette("rainbow1")
+  pal <- ggtrout_palette("rainbow1", quiet = TRUE)
   colorblindcheck::palette_check(pal)
 }

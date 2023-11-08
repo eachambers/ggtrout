@@ -13,15 +13,15 @@ knitr::opts_chunk$set(
 )
 ```
 
-# ggtrout
+# ggtrout <img src="man/figures/logo.png" align="right" height="160"/>
 
-Are you so obsessed with trout that you want to incorporate their coloration into your data visualizations? Look no further! This package provides ten color palettes inspired by several species (and subspecies) of trout that inhabit pristine habitats across the United States. The package's framework is designed for use in the tidyverse but can be used for base R plotting as well.
+Are you so obsessed with trout that you want to incorporate their coloration into your data visualizations? Look no further! This package provides ten color palettes inspired by several species (and subspecies) of trout that inhabit pristine habitats across the United States. The package's framework is designed for use in the tidyverse but can also be used for base R plotting.
 
 ## Installation
 
 ------------------------------------------------------------------------
 
-The ggtrout package is only available on GitHub and so must be installed using the devtools package like so:
+The ggtrout package is only available on GitHub and so must be installed using the devtools package:
 
 ``` r
 devtools::install_github("eachambers/ggtrout")
@@ -125,9 +125,9 @@ ggtrout_palette("rainbow3")
 
 ------------------------------------------------------------------------
 
-Below are some examples of using the ggtrout palettes. As you can see, you can adapt these palettes for use in `ggplot2()`. 
+Below are some examples of using the ggtrout palettes. Let's first load relevant libraries:
 
-```{r examples, message = FALSE, fig.width = 5, fig.height = 5}
+```{r libs}
 library(ggplot2)
 library(cowplot)
 library(tibble)
@@ -137,7 +137,11 @@ library(readr)
 library(dataRetrieval)
 library(tidyr)
 theme_set(theme_cowplot())
+```
 
+And now take a look at some examples. As you can see, the palettes are designed to be used with ggplot2 syntax.
+
+```{r examples, message = FALSE}
 ggplot(Orange, aes(x = circumference, y = age, color = Tree)) +
   geom_point(size = 3, alpha = 0.8) +
   scale_color_manual(values = ggtrout_palette("brook1"))
