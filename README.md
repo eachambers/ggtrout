@@ -84,6 +84,8 @@ ggtrout_cb("brook1")
 
 ------------------------------------------------------------------------
 
+<img src="man/figures/cuttie.jpg" align="center" height="350"/>
+
 Let’s go through all the palettes, grouped by (sub)species. In general,
 you can access and view the palettes using the `ggtrout_palette()`
 function like so:
@@ -115,7 +117,7 @@ in the 1930s until its rediscovery in a restricted river basin in
 Colorado in 1957. Since then, massive conservation efforts have been
 focused on reintroducing the subspecies into its historic range; the
 greenback is also the state fish of Colorado! There are four
-cuttie-inspired palettes.
+cuttie-inspired palettes:
 
 ``` r
 grid_palettes("cutthroat")
@@ -128,7 +130,7 @@ grid_palettes("cutthroat")
 Rainbow trout (*Oncorhynchus mykiss*) is a widely distributed species
 that has been introduced to freshwater habitats across the U.S. so it’s
 generally a little less exciting than the other trout. Their coloration
-is quite stunning though! There are three rainbow-inspired palettes.
+is quite stunning though! There are three rainbow-inspired palettes:
 
 ``` r
 grid_palettes("rainbow")

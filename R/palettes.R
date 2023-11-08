@@ -165,5 +165,5 @@ plot_helper <- function(pal) {
     ggplot2::ggtitle(pal$name) +
     ggplot2::theme(legend.position = "none",
                    plot.title = ggplot2::element_text(hjust = 0.05, face = "bold", size = 18)) +
-    ggplot2::coord_equal()
+    ggplot2::coord_fixed()
 }
