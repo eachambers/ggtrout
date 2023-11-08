@@ -108,3 +108,62 @@ ggtrout_cb <- function(name) {
   pal <- ggtrout_palette("rainbow1")
   colorblindcheck::palette_check(pal)
 }
+
+#' Grid several palettes for README
+#'
+#' @param family trout (sub)species name (options are "brook", "cutthroat" (includes greenback), or "rainbow"; can also do "all" to print all palettes)
+#'
+#' @return prints ggplots for all palettes within a given family
+#' @export
+grid_palettes <- function(family) {
+  if (family == "brook") species <- c("brook1", "brook2", "brook3")
+  if (family == "cutthroat") species <- c("cutthroat1", "cutthroat2", "cutthroat3", "greenback")
+  if (family == "rainbow") species <- c("rainbow1", "rainbow2", "rainbow3")
+
+  fishes <- 1:length(species)
+
+  # Process palette data for each fish
+  dat <-
+    fishes %>%
+    lapply(function(x) {
+      pal <- ggtrout_palette(species[x])
+      pal <- tibble::as_tibble(pal)
+      vals <- sapply(pal, `[`, 1:nrow(pal))
+      name <- species[x]
+      return(list(pal = pal, vals = vals, name = name))
+    }) %>%
+    c()
+
+  # Build plots for each fish
+  plots <-
+    fishes %>%
+    lapply(function(x) {
+      pal <- dat[[x]]
+      plot_helper(pal)
+    }) %>%
+    c()
+
+  # Grid plots together depending on how many palettes there are per species
+  if (length(plots) == 3) {
+    cowplot::plot_grid(plots[[1]], plots[[2]], plots[[3]], ncol = 1, align = "h")
+  } else {
+    cowplot::plot_grid(plots[[1]], plots[[2]], plots[[3]], plots[[4]], ncol = 1, align = "h")
+  }
+}
+
+#' Helper function for building palette plots
+#'
+#' @param pal palette (output from `ggtrout_palette()` function)
+#'
+#' @return ggplot-type object with palette
+#' @export
+plot_helper <- function(pal) {
+  ggplot2::ggplot(data = pal$pal, ggplot2::aes(x = 1:nrow(pal$pal), y = 1, fill = x)) +
+    ggplot2::geom_tile() +
+    ggplot2::scale_fill_manual(values = pal$vals) +
+    ggplot2::theme_void() +
+    ggplot2::ggtitle(pal$name) +
+    ggplot2::theme(legend.position = "none",
+                   plot.title = ggplot2::element_text(hjust = 0.05, face = "bold", size = 18)) +
+    ggplot2::coord_equal()
+}

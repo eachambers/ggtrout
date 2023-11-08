@@ -84,7 +84,13 @@ ggtrout_cb("brook1")
 
 ------------------------------------------------------------------------
 
-Let’s go through all the palettes, grouped by (sub)species.
+Let’s go through all the palettes, grouped by (sub)species. In general,
+you can access and view the palettes using the `ggtrout_palette()`
+function like so:
+
+``` r
+# ggtrout_palette("brook1")
+```
 
 ### Brook trout
 
@@ -93,22 +99,10 @@ orange-red pelvic and pectoral fins and brilliant red lateral spots
 ringed with a grey-blue. There are three brookie-inspired palettes:
 
 ``` r
-ggtrout_palette("brook1")
+grid_palettes("brook")
 ```
 
-<img src="man/figures/README-brookie1-1.png" width="100%" />
-
-``` r
-ggtrout_palette("brook2")
-```
-
-<img src="man/figures/README-brookie2-1.png" width="100%" />
-
-``` r
-ggtrout_palette("brook3")
-```
-
-<img src="man/figures/README-brookie3-1.png" width="100%" />
+<img src="man/figures/README-brookie-1.png" width="100%" />
 
 ### Cutthroat trout
 
@@ -124,28 +118,10 @@ greenback is also the state fish of Colorado! There are four
 cuttie-inspired palettes.
 
 ``` r
-ggtrout_palette("cutthroat1")
+grid_palettes("cutthroat")
 ```
 
-<img src="man/figures/README-cuttie1-1.png" width="100%" />
-
-``` r
-ggtrout_palette("cutthroat2")
-```
-
-<img src="man/figures/README-cuttie2-1.png" width="100%" />
-
-``` r
-ggtrout_palette("cutthroat3")
-```
-
-<img src="man/figures/README-cuttie3-1.png" width="100%" />
-
-``` r
-ggtrout_palette("greenback")
-```
-
-<img src="man/figures/README-greenback-1.png" width="100%" />
+<img src="man/figures/README-cuttie-1.png" width="100%" />
 
 ### Rainbow trout
 
@@ -155,22 +131,10 @@ generally a little less exciting than the other trout. Their coloration
 is quite stunning though! There are three rainbow-inspired palettes.
 
 ``` r
-ggtrout_palette("rainbow1")
+grid_palettes("rainbow")
 ```
 
-<img src="man/figures/README-rainbow1-1.png" width="100%" />
-
-``` r
-ggtrout_palette("rainbow2")
-```
-
-<img src="man/figures/README-rainbow2-1.png" width="100%" />
-
-``` r
-ggtrout_palette("rainbow3")
-```
-
-<img src="man/figures/README-rainbow3-1.png" width="100%" />
+<img src="man/figures/README-rainbow-1.png" width="100%" />
 
 ## Examples
 

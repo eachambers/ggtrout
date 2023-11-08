@@ -14,7 +14,9 @@ Imports:
     ggplot2,
     grDevices,
     tibble,
-    colorblindcheck
+    colorblindcheck,
+    cowplot,
+    readr
 Depends: 
     R (>= 2.10)
 LazyData: true

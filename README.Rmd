@@ -67,58 +67,34 @@ ggtrout_cb("brook1")
 
 ------------------------------------------------------------------------
 
-Let's go through all the palettes, grouped by (sub)species.
+Let's go through all the palettes, grouped by (sub)species. In general, you can access and view the palettes using the `ggtrout_palette()` function like so:
+
+```{r palette}
+# ggtrout_palette("brook1")
+```
 
 ### Brook trout
 
 Brook trout (*Salvelinus fontinalis*), when breeding, have bright orange-red pelvic and pectoral fins and brilliant red lateral spots ringed with a grey-blue. There are three brookie-inspired palettes:
 
-```{r brookie1, message = FALSE, fig.width=3, fig.height=1}
-ggtrout_palette("brook1")
-```
-
-```{r brookie2, message = FALSE}
-ggtrout_palette("brook2")
-```
-
-```{r brookie3, message = FALSE}
-ggtrout_palette("brook3")
+```{r brookie, message = FALSE}
+grid_palettes("brook")
 ```
 
 ### Cutthroat trout
 
 Cutthroat trout (*Oncorhynchus clarkii*) are named for their bright blood-red fin arch coloration. This species has many subspecies, and the ggtrout package is inspired by two Coloradan subspecies: the Colorado River cutthroat (*O. c. pleuriticus*) and the greenback cutthroat (*O. c. stomias*). The greenback has a fun history: it was presumed extinct in the 1930s until its rediscovery in a restricted river basin in Colorado in 1957. Since then, massive conservation efforts have been focused on reintroducing the subspecies into its historic range; the greenback is also the state fish of Colorado! There are four cuttie-inspired palettes.
 
-```{r cuttie1, message = FALSE}
-ggtrout_palette("cutthroat1")
-```
-
-```{r cuttie2, message = FALSE}
-ggtrout_palette("cutthroat2")
-```
-
-```{r cuttie3, message = FALSE}
-ggtrout_palette("cutthroat3")
-```
-
-```{r greenback, message = FALSE}
-ggtrout_palette("greenback")
+```{r cuttie, message = FALSE}
+grid_palettes("cutthroat")
 ```
 
 ### Rainbow trout
 
 Rainbow trout (*Oncorhynchus mykiss*) is a widely distributed species that has been introduced to freshwater habitats across the U.S. so it's generally a little less exciting than the other trout. Their coloration is quite stunning though! There are three rainbow-inspired palettes.
 
-```{r rainbow1, message = FALSE}
-ggtrout_palette("rainbow1")
-```
-
-```{r rainbow2, message = FALSE}
-ggtrout_palette("rainbow2")
-```
-
-```{r rainbow3, message = FALSE}
-ggtrout_palette("rainbow3")
+```{r rainbow, message = FALSE}
+grid_palettes("rainbow")
 ```
 
 ## Examples
