@@ -158,7 +158,6 @@ You can check the degree of colorblind friendliness for each of the ggtrout pale
 
 ```{r colorblind, message = FALSE}
 library(colorblindcheck)
-
 ggtrout_cb("brook1")
 ```
 

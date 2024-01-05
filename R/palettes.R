@@ -105,7 +105,7 @@ print.palette <- function(x, ...) {
 #' @return values for color vision deficiencies
 #' @export
 ggtrout_cb <- function(name) {
-  pal <- ggtrout_palette("rainbow1")
+  pal <- ggtrout_palette(name)
   colorblindcheck::palette_check(pal)
 }
 

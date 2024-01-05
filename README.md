@@ -224,13 +224,12 @@ deficiencies.
 
 ``` r
 library(colorblindcheck)
-
 ggtrout_cb("brook1")
 #>           name n tolerance ncp ndcp  min_dist mean_dist max_dist
-#> 1       normal 8  11.02395  28   28 11.023953  21.09850 33.82429
-#> 2 deuteranopia 8  11.02395  28   24  5.287604  19.59110 31.99118
-#> 3   protanopia 8  11.02395  28   25  7.137733  19.29605 32.59222
-#> 4   tritanopia 8  11.02395  28   26  8.509960  21.03258 41.47271
+#> 1       normal 7  19.52755  21   21 19.527555  34.70396 53.60330
+#> 2 deuteranopia 7  19.52755  21   18  7.047038  30.32271 51.01541
+#> 3   protanopia 7  19.52755  21   18 10.091720  30.91520 52.07805
+#> 4   tritanopia 7  19.52755  21   17 12.176371  31.64165 52.09485
 ```
 
 ## Acknowledgements
